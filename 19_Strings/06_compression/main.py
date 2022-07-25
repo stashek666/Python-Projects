@@ -1,36 +1,19 @@
-# Вариант с кокнатенацией:
-# string = input('Введите строку: ')
-#
-# count = 1
-#
-# print('\nЗакодированная строка: ', end='')
-# for i_sym in range(len(string)):
-#     if i_sym == (len(string)-1):
-#         print(string[i_sym] + str(count), end='')
-#     else:
-#         if string[i_sym] == string[i_sym + 1]:
-#             count += 1
-#         else:
-#             print(string[i_sym] + str(count), end='')
-#             count = 1
+def compress(seq):
+    start_seq = list(seq[:1])
+    end_seq = seq[1:]
+    parts = [start_seq] if start_seq else []
 
-
-def compress(s):
-    sym_list = list(s[:1])
-    s = s[1:]
-    parts = [sym_list] if sym_list else []
-
-    for i in sym_list:
-        if i in s:
-            sym_list.append(i)
+    for i_seq in end_seq:
+        if i_seq in start_seq:
+            start_seq.append(i_seq)
         else:
-            sym_list = [i]
-            parts.append(sym_list)
+            start_seq = [i_seq]
+            parts.append(start_seq)
 
-    return ''.join('{}{}'.format(i_part[0], len(i_part))
-                   for i_part in parts)
+    return ''.join('{}{}'.format(part[0], len(part)) for part in parts)
 
 string = input('Введите строку: ')
-result = compress(string)
 
+result = compress(string)
 print('\nЗакодированная строка: ', result)
+
