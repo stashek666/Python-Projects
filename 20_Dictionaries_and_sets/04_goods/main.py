@@ -24,4 +24,17 @@ store = {
     ],
 }
 
-# TODO здесь писать код
+
+def count_func(list_item):
+    t_quantity = 0
+    t_price = 0
+    for index in list_item:
+        t_price += index['quantity'] * index['price']
+        t_quantity += index['quantity']
+    return t_quantity, t_price
+
+
+for item, code in goods.items():
+    count, price = count_func(store[code])
+    print('{0} - {1} шт, стоимость: {2} руб.'
+          .format(item, count, price))
