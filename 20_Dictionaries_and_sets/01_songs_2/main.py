@@ -12,7 +12,7 @@ violator_songs = {
 
 songs_count = int(input('Сколько песен выбрать? '))
 
-time_count  = 0
+time_count = 0
 
 for i_song in range(songs_count):
 
