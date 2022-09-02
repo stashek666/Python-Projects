@@ -6,4 +6,19 @@ def calculating_math_func(data):
     result = result ** 10
     return result
 
-# TODO оптимизировать функцию
+
+print(calculating_math_func(10))
+
+
+def calculating_math_func_2(num):
+
+    if num == 1:
+        return 1
+    factorial = calculating_math_func_2(num - 1)
+    return num * factorial
+
+
+result = (calculating_math_func_2(10) / 10 ** 3) ** 10
+print(result)
+
+
