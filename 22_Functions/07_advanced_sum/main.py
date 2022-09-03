@@ -12,6 +12,7 @@ def supple_summ(*args):
 
 lst_1 = [1, 2, [3], [1], 3]
 lst_2 = 1, 2, 3, 4, 5
+
 print(lst_1)
 print('Ответ: ', supple_summ(lst_1))
 print('\n', lst_2)

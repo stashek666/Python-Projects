@@ -16,3 +16,6 @@ def move(n, start, finish):
 
 N = int(input('Введите количество дисков: '))
 move(N, 1, 3)
+
+
+
