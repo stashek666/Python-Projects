@@ -1,3 +1,5 @@
+import json
+
 site = {
     'html': {
         'head': {
@@ -24,15 +26,6 @@ def find_key(struct, key, meaning):
                 return site
 
 
-def recursive_print_dict(d, indent=0):
-    for k, v in d.items():
-        if isinstance(v, dict):
-            print("\t" * indent, f"{k}:")
-            recursive_print_dict(v, indent+1)
-        else:
-            print("\t" * indent, f"{k}:{v}")
-
-
 number_sites = int(input('Сколько сайтов: '))
 for _ in range(number_sites):
     product_name = input('Введите название продукта для нового сайта: ')
@@ -41,4 +34,5 @@ for _ in range(number_sites):
         find_key(site, i, total_key[i])
 
     print('\n', f'Сайт для {product_name}:')
-    print(recursive_print_dict(site))
+    print('site = ', end='')
+    print(json.dumps(site, sort_keys=False, ensure_ascii=False, indent=3))
