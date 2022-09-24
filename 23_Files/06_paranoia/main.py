@@ -30,5 +30,3 @@ output_file.close()
 
 
 
-
-
