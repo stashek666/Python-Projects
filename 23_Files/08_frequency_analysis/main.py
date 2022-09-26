@@ -18,4 +18,8 @@ frequency_list.sort(key=lambda x: x[1], reverse=True)
 
 result = "\n".join([i_elem[0] + " " + i_elem[1]
                     for i_elem in frequency_list])
-open("output.txt", "w").write(result)
+
+output_data = open("output.txt", "w")
+output_data.write(result)
+
+output_data.close()
