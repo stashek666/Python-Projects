@@ -8,10 +8,9 @@ class Warrior:
         self.health = health
 
     def hit(self, target):
-        if type(self) == type(target):
-            target.health -= 20
-        else:
-            raise TypeError
+
+        target.health -= 20
+
 
 
 warriors = [Warrior('Наруто'), Warrior('Саске')]
