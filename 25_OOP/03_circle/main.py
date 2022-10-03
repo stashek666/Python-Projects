@@ -16,7 +16,7 @@ class Circle:
         ))
 
     def get_area(self):
-        return self.r * self.r * self.pi
+        return (self.r ** 2) * self.pi
 
     def get_perimeter(self):
         return 2 * self.r * self.pi
@@ -26,7 +26,9 @@ class Circle:
         return self.r
 
     def is_intersect(self, other):
-        return (self.x - other.x) ** 2 + (self.y - other.y) ** 2 <= (self.r + other.r) ** 2
+        if (self.x - other.x) ** 2 + (self.y - other.y) ** 2 <= (self.r + other.r) ** 2:
+            return True
+        return False
 
 
 circle_1 = Circle(random.randint(0, 10), random.randint(0, 10), random.randint(1, 10))
