@@ -2,7 +2,8 @@ import random
 
 
 class Ether:
-    title = 'Эфир'
+    def __str__(self):
+        return 'Эфир'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -18,7 +19,8 @@ class Ether:
 
 
 class Fire:
-    title = 'Огонь'
+    def __str__(self):
+        return 'Огонь'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -28,11 +30,12 @@ class Fire:
         elif isinstance(other, Earth):
             return Lava()
         else:
-            raise TypeError
+            return FireGiant()
 
 
 class Air:
-    title = 'Воздух'
+    def __str__(self):
+        return 'Воздух'
 
     def __add__(self, other):
         if isinstance(other, Water):
@@ -42,11 +45,12 @@ class Air:
         elif isinstance(other, Earth):
             return Dust()
         else:
-            raise TypeError
+            return AirGiant()
 
 
 class Water:
-    title = 'Вода'
+    def __str__(self):
+        return 'Вода'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -56,11 +60,12 @@ class Water:
         elif isinstance(other, Earth):
             return Dirt()
         else:
-            raise TypeError
+            return WaterGiant()
 
 
 class Earth:
-    title = 'Земля'
+    def __str__(self):
+        return 'Земля'
 
     def __add__(self, other):
         if isinstance(other, Water):
@@ -70,63 +75,72 @@ class Earth:
         elif isinstance(other, Air):
             return Dust()
         else:
-            raise TypeError
+            return EarthGiant()
 
 
 class Storm:
-    title = 'Шторм'
+    def __str__(self):
+        return 'Шторм'
 
 
 class Steam:
-    title = 'Пар'
+    def __str__(self):
+        return 'Пар'
 
 
 class Dirt:
-    title = 'Грязь'
+    def __str__(self):
+        return 'Грязь'
 
 
 class Lightning:
-    title = 'Молния'
+    def __str__(self):
+        return 'Молния'
 
 
 class Dust:
-    title = 'Пыль'
+    def __str__(self):
+        return 'Пыль'
 
 
 class Lava:
-    title = 'Лава'
+    def __str__(self):
+        return 'Лава'
 
 
 class WaterGiant:
-    title = 'Водный гигант'
+    def __str__(self):
+        return 'Водный гигант'
 
 
 class EarthGiant:
-    title = 'Земляной гигант'
+    def __str__(self):
+        return 'Земляной гигант'
 
 
 class FireGiant:
-    title = 'Огненный гигант'
+    def __str__(self):
+        return 'Огненный гигант'
 
 
 class AirGiant:
-    title = 'Воздушный гигант'
+    def __str__(self):
+        return 'Воздушный гигант'
 
 
 count = 1
+water = Water()
+earth = Earth()
+air = Air()
+fire = Fire()
+ether = Ether()
+elements_list = [water, earth, air, fire, ether]
+elem_1 = random.choice(elements_list)
+elem_2 = random.choice(elements_list)
 
 while True:
 
-    water = Water()
-    earth = Earth()
-    air = Air()
-    fire = Fire()
-    ether = Ether()
-    elements_list = [water, earth, air, fire, ether]
-    elem_1 = random.choice(elements_list)
-    elem_2 = random.choice(elements_list)
-
-    print('Выбраны элементы: ', elem_1.title, elem_2.title)
+    print('Выбраны элементы: ', elem_1, elem_2)
 
     if elem_1 == elem_2:
         count += 1
@@ -135,6 +149,6 @@ while True:
     else:
         result = elem_1 + elem_2
         print('Смешиваем {} c {} и получаем: {}'.format(
-            elem_1.title, elem_2.title, result.title
+            elem_1, elem_2, result
         ))
         break
