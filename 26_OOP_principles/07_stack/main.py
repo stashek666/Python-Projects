@@ -37,13 +37,11 @@ class TaskManager:
 
 manager = TaskManager()
 
-manager.new_task("сделать уборку", 4)
-manager.new_task("помыть посуду", 4)
-manager.new_task("отдохнуть", 1)
-manager.new_task("поесть", 2)
-manager.new_task("сдать дз", 2)
+manager.new_task(task="сделать уборку", priority=4)
+manager.new_task(task="помыть посуду", priority=4)
+manager.new_task(task="отдохнуть", priority=1)
+manager.new_task(task="поесть", priority=2)
+manager.new_task(task="сдать дз", priority=2)
 
 print(manager)
-
-
 
